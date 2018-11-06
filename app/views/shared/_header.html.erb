@@ -17,9 +17,9 @@
           Categories
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%# Category.all.each do |category| %>
-            <%#= link_to category.name, root_path, class: "dropdown-item" %>
-          <%# end %>
+          <% Category.all.each do |category| %>
+            <%= link_to category.name, root_path, class: "dropdown-item" %>
+          <% end %>
         </div>
       </li>
     </ul>

@@ -26,12 +26,9 @@
 			      <label class="control">Categories</label> <br>
             <div class="collection-check-box">
               <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, checked: @recipe.categories.map(&:id)) do |c| %>
-                <%= c.label { c.check_box } %>
+								<%= c.check_box %> <%= c.label %>
               <% end %>
-            <%#= f.collection_check_boxes(:category_ids, Category.all, :id, :name, checked: @recipe.categories.map(&:id)) do |b| %>
-                <%#= b.check_box %> <%#= b.label %>
 					    </div>
-            <%# end %>
 			    </div>
 					<%= f.submit class: "btn btn-primary" %>
 			  </div>

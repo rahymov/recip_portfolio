@@ -7,7 +7,7 @@
 			<div id="recipe_info">
 				<h1><%= @recipe.title %></h1>
 				<p class="description"><%= @recipe.description %></p>
-				<p>Submitted by <%= link_to @recipe.user.email, root_path %></p>
+				<p>Submitted by <%= link_to @recipe.user.email, root_url %></p>
 			</div>
 		</div>
 	</div>

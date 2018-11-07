@@ -1,2 +1,7 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<ul>
+  <% @recipes.each do |recipe| %>
+  <%= image_tag recipe.image.variant(resize: '500x500') %>
+  <h2><%= recipe.title %></h2>
+  <small>by <%= recipe.user.email %></small>
+  <% end %>
+</ul>

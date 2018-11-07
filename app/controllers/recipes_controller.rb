@@ -3,6 +3,8 @@ class RecipesController < ApplicationController
   before_action :authenticate_user! , except: [:show, :index]
   def index
     @recipes = Recipe.all
+    @categories = Category.all
+    # @category = Category.find(params[:id])
   end
 
   def new
@@ -22,7 +24,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @categories = Category.all
   end
 
   def edit

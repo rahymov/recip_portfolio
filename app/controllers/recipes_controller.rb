@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user! , except: [:show, :index]
   before_action :require_user!, only: [:edit, :destroy, :update]
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.order_by_desc # implemented query method
     @categories = Category.all
     # @category = Category.find(params[:id])
   end

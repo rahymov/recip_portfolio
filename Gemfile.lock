@@ -114,6 +114,7 @@ GEM
     jwt (2.1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letsrate (1.0.9)
     letter_opener (1.6.0)
       launchy (~> 2.2)
     listen (3.1.5)
@@ -268,6 +269,7 @@ DEPENDENCIES
   image_processing (~> 1.7, >= 1.7.1)
   jbuilder (~> 2.5)
   jquery-rails
+  letsrate (~> 1.0, >= 1.0.9)
   letter_opener
   listen (>= 3.0.5, < 3.2)
   omniauth-facebook

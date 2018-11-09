@@ -16,5 +16,8 @@ class Recipe < ApplicationRecord
 																reject_if: proc {|attributes| attributes['step'].blank?},
 																allow_destroy: true
 
-  scope :order_and_categories, -> { order("title").includes(:categories)}
+  scope :order_and_categories, -> { order("title")}
+  def self.order_by_created_at_desc
+    order("created_at desc")
+  end
 end

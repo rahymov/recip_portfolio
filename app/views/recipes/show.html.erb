@@ -6,6 +6,10 @@
 			<% else %>
 				<%= image_tag "logo.jpg" %>
 			<% end %>
+			<% if !current_user %>
+				<p>Rate: <%= rating_for @recipe, 'title', enable_half: true, cancel_place: 'left' %></p>
+			<!-- <p>Rating for user: <%#= rating_for_user @recipe, current_user, 'title', star: 10 %></p> -->
+			<% end %>
 		</div>
 		<div class="col-md-7">
 			<div id="recipe_info">

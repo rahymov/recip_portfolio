@@ -3,7 +3,7 @@ class Recipe < ApplicationRecord
   has_many :recipe_categories
   has_many :categories, through: :recipe_categories
   validates :title, :description, presence: true, uniqueness: true
-
+  ratyrate_rateable "title"
   has_one_attached :image
   delegate :filename, to: :image, allow_nil: true
 

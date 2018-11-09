@@ -1,7 +1,1 @@
-<ul>
-  <% @recipes.each do |recipe| %>
-  <%= image_tag recipe.image.variant(resize: '500x500') %>
-  <h2><%= recipe.title %></h2>
-  <small>by <%= recipe.user.email %></small>
-  <% end %>
-</ul>
+<%= render 'recipes/recipes' %>

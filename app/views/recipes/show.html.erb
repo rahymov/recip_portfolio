@@ -1,7 +1,11 @@
 <div class="main_content">
 	<div id="recipe_top" class="row">
 		<div class="col-md-5">
-			<span><%= image_tag @recipe.image.variant(resize: '500x500'), class: "recipe_image" %></span>
+			<% if @recipe.image.attached? %>
+				<span><%= image_tag @recipe.image.variant(resize: '500x500'), class: "recipe_image" %></span>
+			<% else %>
+				<%= image_tag "logo.jpg" %>
+			<% end %>
 		</div>
 		<div class="col-md-7">
 			<div id="recipe_info">
@@ -20,9 +24,9 @@
 					<% @recipe.categories do |cat| %>
 						<h3><%= cat.name %></h3>
 					<% end %>
-					<%# @recipe.ingredients.each do |ingredient| %>
-						<li><%#= ingredient.name %></li>
-					<%# end %>
+					<% @recipe.ingredients.each.with_index(1) do |ingredient, i| %>
+						<h6><%=i%>. <%= ingredient.name %></h6>
+					<% end %>
 				</ul>
 			</div>
 		</div>
@@ -30,9 +34,9 @@
 			<div id="directions">
 				<h2>Directions </h2>
 				<ul>
-					<%# @recipe.directions.each do |direction| %>
-						<li><%#= direction.step %></li>
-					<%# end %>
+					<% @recipe.directions.each.with_index(1) do |direction, i| %>
+						<h6><%= i %>. <%= direction.step %></h6>
+					<% end %>
 				</ul>
 			</div>
 		</div>

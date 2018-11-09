@@ -1,16 +1,1 @@
-
-
-		<div class="row">
-			<% @recipes.each do |recipe| %>
-				<div class="col-md-4">
-					<div class="recipe">
-						<div class="image_wrapper">
-							<%= link_to  recipe do %>
-							<%= image_tag recipe.image.variant(resize: '300x300') %>
-						</div>
-						<h2><%= link_to recipe.title, recipe  %></h2>
-					</div>
-				</div>
-			</div>
-		<% end %>
-	<% end %>
+<%= render "recipes" %>

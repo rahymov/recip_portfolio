@@ -6,9 +6,8 @@
 			<% else %>
 				<%= image_tag "logo.jpg" %>
 			<% end %>
-			<% if !current_user %>
+			<% if current_user != @recipe.user %>
 				<p>Rate: <%= rating_for @recipe, 'title', enable_half: true, cancel_place: 'left' %></p>
-			<!-- <p>Rating for user: <%#= rating_for_user @recipe, current_user, 'title', star: 10 %></p> -->
 			<% end %>
 		</div>
 		<div class="col-md-7">
@@ -45,6 +44,11 @@
 			</div>
 		</div>
 	</div><br>
+	<div class="row">
+		<div class="col-md-6">
+			<%= link_to "Write a review", root_path %>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="btn-group">

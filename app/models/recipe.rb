@@ -16,5 +16,6 @@ class Recipe < ApplicationRecord
 																reject_if: proc {|attributes| attributes['step'].blank?},
 																allow_destroy: true
 
+  has_many :reviews
   scope :order_and_categories, -> { order("title").includes(:categories)}
 end

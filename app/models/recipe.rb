@@ -9,7 +9,7 @@ class Recipe < ApplicationRecord
 
   has_many :directions
   has_many :ingredients
-  
+
   accepts_nested_attributes_for :ingredients,
 																reject_if: proc {|attributes| attributes['name'].blank?},
 																allow_destroy: true
@@ -19,4 +19,8 @@ class Recipe < ApplicationRecord
 
   has_many :reviews
   scope :order_and_categories, -> { order("title").includes(:categories)}
+
+  def self.review_order_by_date
+    where(recipe_id: @recipe.id).order("created_at DESC")
+  end
 end

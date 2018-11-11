@@ -15,6 +15,9 @@
 				<h1><%= @recipe.title %></h1>
 				<p class="description"><%= @recipe.description %></p>
 				<p>Submitted by <%= link_to @recipe.user.email, root_url %></p>
+				<% @recipe.categories.each do |cat| %>
+				<p class="btn btn-secondary"><%= link_to cat.name, category_recipes_path(cat) %></p>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -54,3 +57,15 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+		<h3><%= @recipe.comments.count %> Comments</h3>
+		<%= render @recipe.comments %>
+		<% if user_signed_in? %>
+		<h3>Add Comment: </h3>
+		<%= render 'comments/form' %>
+		<% end %>
+	</div>
+</div>
+<div id="comments">
+	</div>

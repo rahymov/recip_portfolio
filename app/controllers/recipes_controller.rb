@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   before_action :require_user!, only: [:edit, :destroy, :update]
   def index
     @search = Recipe.search(params[:q])
-    @recipes = @search.result
+    @recipes = @search.result.order_by_created_at_desc
     # @recipes = Recipe.all.order_by_created_at_desc
   end
 

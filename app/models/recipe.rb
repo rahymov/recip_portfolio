@@ -18,6 +18,7 @@ class Recipe < ApplicationRecord
 																allow_destroy: true
 
   has_many :reviews
+  has_many :comments, :dependent => :destroy
   scope :order_and_categories, -> { order("title").includes(:categories)}
 
   def self.review_order_by_date

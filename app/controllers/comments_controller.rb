@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  def new
+    @comment = Comment.new
+  end
   def create
 		@recipe = Recipe.find(params[:recipe_id])
-		@comment = @recipe.comments.create(comment_params)
+		@comment = @recipe.comments.new(comment_params)
     @comment.save
     # binding.pry
 		redirect_to recipe_path(@recipe)

@@ -20,6 +20,7 @@ gem 'image_processing', '~> 1.7', '>= 1.7.1'
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'ratyrate'
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
+gem 'ransack', '~> 2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

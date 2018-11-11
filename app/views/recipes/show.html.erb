@@ -49,7 +49,7 @@
 		<div class="col-md-12 ">
 			<div class="btn-group">
 				<%= link_to "Back", root_path, class: "btn btn-default" %>
-				<% if @recipe.user == current_user %>
+				<% if recipe_user %>
   				<%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
   				<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger " %>
 				<% end %>
@@ -68,4 +68,4 @@
 	</div>
 </div>
 <div id="comments">
-	</div>
+</div>

@@ -6,12 +6,18 @@
 			<% else %>
 				<%= image_tag "logo.jpg" %>
 			<% end %>
+			<% if current_user != @recipe.user %>
+				<p>Rate: <%= rating_for @recipe, 'title', enable_half: true, cancel_place: 'left' %></p>
+			<% end %>
 		</div>
 		<div class="col-md-7">
 			<div id="recipe_info">
 				<h1><%= @recipe.title %></h1>
 				<p class="description"><%= @recipe.description %></p>
 				<p>Submitted by <%= link_to @recipe.user.email, root_url %></p>
+				<% @recipe.categories.each do |cat| %>
+				<p class="btn btn-secondary"><%= link_to cat.name, category_recipes_path(cat) %></p>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -33,16 +39,14 @@
 		<div class="col-md-6">
 			<div id="directions">
 				<h2>Directions </h2>
-				<ul>
 					<% @recipe.directions.each.with_index(1) do |direction, i| %>
 						<h6><%= i %>. <%= direction.step %></h6>
 					<% end %>
-				</ul>
 			</div>
 		</div>
 	</div><br>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12 ">
 			<div class="btn-group">
 				<%= link_to "Back", root_path, class: "btn btn-default" %>
 				<% if current_user %>
@@ -53,3 +57,15 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+		<h3><%= @recipe.comments.count %> Comments</h3>
+		<%= render @recipe.comments %>
+		<% if user_signed_in? %>
+		<h3>Add Comment: </h3>
+		<%= render 'comments/form' %>
+		<% end %>
+	</div>
+</div>
+<div id="comments">
+	</div>

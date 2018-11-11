@@ -18,7 +18,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'image_processing', '~> 1.7', '>= 1.7.1'
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
-gem 'letsrate', '~> 1.0', '>= 1.0.9'
+gem 'ratyrate'
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
 
 group :development, :test do

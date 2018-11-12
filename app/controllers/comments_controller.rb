@@ -2,11 +2,9 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    # @user = current_user
 		@recipe = Recipe.find(params[:recipe_id])
 		@comment = @recipe.comments.build(comment_params)
     @comment.user = current_user
-    # binding.pry
     @comment.save
 		redirect_to recipe_path(@recipe)
 	end

@@ -2,7 +2,7 @@
 	<div id="recipe_top" class="row">
 		<div class="col-md-5">
 			<% if @recipe.image.attached? %>
-				<span><%= image_tag @recipe.image.variant(resize: '500x500'), class: "recipe_image" %></span>
+				<span><%= image_tag @recipe.image.variant(resize: '500x500'), class: "recipe_image", placeholder: "image" %></span>
 			<% else %>
 				<%= image_tag "logo.jpg" %>
 			<% end %>
@@ -60,6 +60,7 @@
 <div class="row">
 	<div class="col-md-8 offset-md-2">
 		<h3><%= @recipe.comments.count %> Comments</h3>
+		<small><%= link_to "Sign in", new_user_session_path %> to comment</small>
 		<%= render @recipe.comments %>
 		<% if user_signed_in? %>
 		<h3>Add Comment: </h3>

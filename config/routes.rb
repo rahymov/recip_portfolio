@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   # resources :categories, only: :show do
   #   resources :recipes, only: [:index, :show]
   # end
+  resources :users, only: [:index, :show] do
+    resources :recipes, only: [:index, :show]
+  end
 end

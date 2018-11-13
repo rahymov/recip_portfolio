@@ -43,11 +43,11 @@
         <li class="nav-item dropdown">
           <div class="dropdown nav-item">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Profile
+              <i class="fas fa-user"></i>Profile
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit Profile", edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+              <%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to '<i class="fas fa-sign-out-alt"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
             </div>
           </div>
         </li>

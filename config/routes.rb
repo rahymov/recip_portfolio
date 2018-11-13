@@ -13,10 +13,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   get '/categories/:id/recipes', to: "categories#index", as: "/category_recipes"
-  # resources :categories, only: :show do
-  #   resources :recipes, only: [:index, :show]
-  # end
   resources :users, only: [:index, :show] do
     resources :recipes, only: [:index, :show]
   end
+  get '/comments' => redirect('/')
 end

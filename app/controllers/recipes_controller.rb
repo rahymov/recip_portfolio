@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
   def update
     if current_user
       if @recipe.update(recipe_params)
-        flash[:success] = "Successfully updated."
+        flash[:success] = "Recipe successfully updated."
   			redirect_to @recipe
   		else
   			render 'edit'
@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
   end
   def destroy
     @recipe.destroy
-    redirect_to root_path, notice: "Successfully deleted recipe"
+    redirect_to root_path, notice: "Recipe successfully deleted."
   end
 
   def require_user!
